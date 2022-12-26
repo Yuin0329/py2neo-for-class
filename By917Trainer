@@ -1,0 +1,12 @@
+CREATE (By917trainer:Trainer {title:'By917trainer', released:2002, tagline:'GG.'})
+CREATE (Satoshi:Person {name:'Satoshi', ATK:1554})
+CREATE (Salamander:Person {name:'Salamander', ATK:1456})
+CREATE (Pikachu:Person {name:'Pikachu', ATK:783})
+CREATE (Vaporeon:Person {name:'Vaporeon', ATK:2065})
+CREATE
+(Satoshi)-[:trained {roles:['Satoshi']}]->(By917trainer),
+(Salamander)-[:trained {roles:['Salamander']}]->(By917trainer),
+(Pikachu)-[:trained {roles:['Pikachu']}]->(By917trainer),
+(Vaporeon)-[:Love]->(By917trainer)
+WITH Satoshi as a
+MATCH (a)-[:trained]->(m)<-[:Love]-(d) RETURN a,m,d LIMIT 10;
